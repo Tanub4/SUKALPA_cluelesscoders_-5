@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="showOtpForm()">Submit</button>
+        </form>
+        <form id="otpForm" style="display:none;">
+            <label for="otp">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+            <button type="submit">Verify OTP</button>
+        </form>
+    </div>
+
+    <script>
+        function showOtpForm() {
+            const loginForm = document.getElementById('loginForm');
+            const otpForm = document.getElementById('otpForm');
+
+            loginForm.classList.add('fade-out');
+            setTimeout(() => {
+                loginForm.style.display = 'none';
+                otpForm.style.display = 'block';
+                otpForm.classList.add('fade-in');
+            }, 500); // Duration matches the animation duration
+        }
+    </script>
+</body>
+</html>
